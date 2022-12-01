@@ -1,0 +1,15 @@
+.container{
+    width: 90%;
+    background-color: rgba(79, 118, 185, 0.5);
+    margin: 0 auto 1rem;
+    padding: 0 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date{
+    display: flex;
+    align-items: center;
+}
