@@ -4,11 +4,12 @@ import Button from '@mui/material/Button';
 
 type Props = {
     text : string
+    onClick: ()=>void
 }
 
-function TaskButton({text}: Props) {
+function TaskButton({text , onClick}: Props) {
   return (
-    <button className={styles.button}>
+    <button className={styles.button} onClick={onClick} >
         {text}
     </button>
   )

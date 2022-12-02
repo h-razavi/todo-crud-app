@@ -10,8 +10,19 @@ import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
 import TaskButton from "../src/components/TaskButton";
 import { data } from "../data";
 import TaskModal from "../src/components/TaskModal";
+import { useState } from "react";
 
 export default function Home() {
+  const [open , setOpen] = useState(false);
+
+  const handleOpenModal = ()=>{
+    setOpen(true)
+  }
+
+  const handleCloseModal = ()=>{
+    setOpen(false)
+  }
+  console.log(open)
   return (
     <div className={styles.container}>
       <Head>
@@ -41,13 +52,13 @@ export default function Home() {
          <div className={styles.seperator} />
             {/* tasks here */}
             {data.map(item=><Task title={item.title} date={item.date} />)}
-          <TaskButton text="Add A New Task" />
+          <TaskButton text="Add A New Task" onClick={handleOpenModal} />
         </Box>
         <Box>
           <TaskCounter title="Completed" icon={<PlaylistAddCheckIcon />} counter={0} />
           <div className={styles.seperator} />
         </Box>
-        <TaskModal />
+        {open && <TaskModal open onCloseModal={handleCloseModal} />}
       </main>
     </div>
   );
