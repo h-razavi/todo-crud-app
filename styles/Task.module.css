@@ -2,7 +2,7 @@
     width: 90%;
     background-color: rgba(79, 118, 185, 0.5);
     margin: 0 auto 1rem;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
     border-radius: 0.5rem;
     display: flex;
     justify-content: space-between;
@@ -12,4 +12,26 @@
 .date{
     display: flex;
     align-items: center;
+}
+
+.title{
+    width: 50%;
+}
+
+.editButtons {
+    cursor: pointer;
+    display: flex;
+    gap: 0.2rem;
+}
+
+.check:hover{
+    color: var(--primary-light);
+}
+
+.edit:hover{
+    color: var(--primary-button);
+}
+
+.delete:hover{
+    color: var(--primary-red);
 }
