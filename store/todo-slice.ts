@@ -3,16 +3,19 @@ import { TodoItemType } from "../data";
 
 const initialState:TodoItemType[] = []
 
-const todoSlice = createSlice({
-    name: "todos",
+const tasksSlice = createSlice({
+    name: "tasks",
     initialState,
     reducers :{
-        add(state,action){
+        addTask(state,action){
             state.push(action.payload);
         },
-        delete(state,action){
+        deleteTask(state,action){
             state.filter((item,i)=> i!==action.payload.index)
         }
     }
 })
+
+export const {addTask , deleteTask} = tasksSlice.actions;
+export default tasksSlice.reducer;
 
