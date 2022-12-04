@@ -15,10 +15,14 @@ const tasksSlice = createSlice({
         },
         editTask(state,action){
             return state.map(task=>task.id===action.payload.id?action.payload : task)
+            
+        },
+        markComplete(state,action){
+            return state.map((task)=>task.id===action.payload.id?{...task,isComplete : true}:task)
         }
     }
 })
 
-export const {addTask , deleteTask} = tasksSlice.actions;
+export const {addTask , deleteTask , editTask , markComplete} = tasksSlice.actions;
 export default tasksSlice.reducer;
 

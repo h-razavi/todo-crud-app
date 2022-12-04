@@ -23,7 +23,7 @@ import TaskModal from "../src/components/TaskModal";
 export default function Home() {
   //Modal state
   const [open, setOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing , setIsEditing] = useState(false)
   //Data state
   // const [taskData , setTaskData] = useState<TodoItemType[]|[]>([])
 
@@ -34,11 +34,14 @@ export default function Home() {
 
   const handleCloseModal = () => {
     setOpen(false);
-    setIsEditing(false);
   };
 
   //Get data
-  const todos: TodoItemType[] = useSelector<RootState>((state) => state.tasks);
+  const todos: TodoItemType[] | any = useSelector<RootState>((state) => state.tasks);
+
+  const remainingTasks: TodoItemType[] = todos.filter((todo:TodoItemType) =>!todo.isComplete)
+  const completedTasks: TodoItemType[] = todos.filter((todo:TodoItemType) =>todo.isComplete)
+
 
   return (
     <div className={styles.container}>
@@ -62,29 +65,39 @@ export default function Home() {
           />
           <div className={styles.seperator} />
           {/* tasks here */}
-          {todos.map((item) => (
-            <Task title={item.title} date={item.date} id={item.id} />
+          {remainingTasks.map((item : TodoItemType) => (
+            <Task
+              title={item.title}
+              date={item.date}
+              id={item.id}
+              key={item.id}
+            />
           ))}
           <TaskButton text="Add A New Task" onClick={handleOpenModal} />
         </Box>
-        <Box>
+        {completedTasks.length>0 && <Box>
           <TaskCounter
             title="Completed"
             icon={<PlaylistAddCheckIcon />}
             counter={0}
           />
           <div className={styles.seperator} />
-        </Box>
+          {completedTasks.map((item : TodoItemType) => (
+            <Task
+              title={item.title}
+              date={item.date}
+              id={item.id}
+              key={item.id}
+            />
+          ))}
+        </Box>}
         {open && (
           <TaskModal
             open
             onCloseModal={handleCloseModal}
-            modalTitle={isEditing ? "Edit Task" : "Add A New Task"}
-            modalDescription={
-              isEditing
-                ? "Edit Your Task Details"
-                : "Add A Title And Due Date For Your Task"
-            }
+            modalType="ADD"
+            taskDefaultValue=""
+            dateDefaultValue=""
           />
         )}
       </main>
