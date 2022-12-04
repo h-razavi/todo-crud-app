@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState , useEffect} from 'react'
 import { useDispatch , useSelector } from 'react-redux';
 import { addTask } from '../../store/todo-slice';
 
@@ -18,11 +18,13 @@ import { store } from '../../store/store';
 type Props = {
   open: boolean;
   onCloseModal: ()=>void;
+  modalTitle : string;
+  modalDescription : string;
 };
 
 
 
-function TaskModal({open , onCloseModal}: Props) {
+function TaskModal({open , onCloseModal , modalTitle , modalDescription}: Props) {
 //Creating value states
 const [taskValue , setTaskValue] = useState("");
 const [dateValue , setDateValue] = useState("")
@@ -31,6 +33,7 @@ const [dateValue , setDateValue] = useState("")
 const todos : TodoItemType[] | any = useSelector<RootState>(state =>state.tasks);
 const dispatch = useDispatch();
 
+//Accessing entered values
 function handleTaskChange(event:React.ChangeEvent<HTMLInputElement>){
   setTaskValue(event.target.value)
 }
@@ -47,28 +50,21 @@ function handleAddTask(e:any){
     id : todos.length+1,
     title: taskValue,
     date : dateValue,
-    isComplete : false
+    isComplete : false,
   }
   dispatch(
-    addTask({
-      task: newTask,
-    })
+    addTask(newTask)
   )
-  store.subscribe(()=>{
-    localStorage.setItem('todos', JSON.stringify(store.getState()))
-  })
   onCloseModal();
 }
-
-console.log(store.getState())
 
   return (
     <div>
       <Dialog open={open} onClose={onCloseModal}  >
-        <DialogTitle sx={{backgroundColor:"#0e2030" , fontWeight:"bold"}}>Add A New Task</DialogTitle>
+        <DialogTitle sx={{backgroundColor:"#0e2030" , fontWeight:"bold"}}>{modalTitle}</DialogTitle>
         <DialogContent sx={{backgroundColor:"#0e2030"}}>
           <DialogContentText>
-            Add Your Task And Pick A Due Date Below
+            {modalDescription}
           </DialogContentText>
           <TextField
             margin="dense"
