@@ -60,7 +60,7 @@ export default function Home() {
           <TaskCounter
             title="Tasks"
             icon={<ListIcon />}
-            counter={todos.length}
+            counter={remainingTasks.length}
           />
           <div className={styles.seperator} />
           {/* tasks here */}
@@ -78,7 +78,7 @@ export default function Home() {
           <TaskCounter
             title="Completed"
             icon={<PlaylistAddCheckIcon />}
-            counter={0}
+            counter={completedTasks.length}
           />
           <div className={styles.seperator} />
           {completedTasks.map((item : TodoItemType) => (
