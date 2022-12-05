@@ -60,6 +60,15 @@ console.log(todos)
         <title>Todo App</title>
         <meta name="description" content="A Todo List" />
         <link rel="icon" href="/logo.svg" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin=""
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
       <main>
