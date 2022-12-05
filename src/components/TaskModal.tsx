@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+//
 import { useDispatch, useSelector } from "react-redux";
 import { addTask, editTask } from "../../store/todo-slice";
-
+//
 import type { TodoItemType } from "../../data";
 import type { RootState } from "../../store/store";
-
+//
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -49,7 +50,16 @@ function TaskModal({
     setDateValue(event.target.value);
   }
 
-  //Operations
+  //Form Validation
+  let formIsValid = false;
+  if (
+    (taskValue.length > 0 && dateValue.length > 0) ||
+    (taskDefaultValue.length > 0 && dateDefaultValue.length > 0)
+  ) {
+    formIsValid = true;
+  }
+
+  //Form Operations
   function handleAddTask() {
     const newTask = {
       id: todos.length + 1,
@@ -115,6 +125,7 @@ function TaskModal({
           <Button
             onClick={modalType === "ADD" ? handleAddTask : handleEditTask}
             color="success"
+            disabled={!formIsValid}
           >
             Confirm
           </Button>
