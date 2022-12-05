@@ -24,9 +24,9 @@ export default function Home() {
   //Modal state
   const [open, setOpen] = useState(false);
   //Data state
-  // const [taskData , setTaskData] = useState<TodoItemType[]|[]>([])
+  // const [todosData , setTodosData] = useState<TodoItemType[]|[]>([])
 
-  // Handle modal
+  // Handle modal operations
   const handleOpenModal = () => {
     setOpen(true);
   };
@@ -37,6 +37,18 @@ export default function Home() {
 
   //Get data
   const todos: TodoItemType[] | any = useSelector<RootState>((state) => state.tasks);
+
+  // const remainingTasks: TodoItemType[] = todos.filter((todo:TodoItemType) =>!todo.isComplete)
+  // const completedTasks: TodoItemType[] = todos.filter((todo:TodoItemType) =>todo.isComplete)
+
+  // LocalStorage
+// useEffect(()=>{
+//   const savedTodos = localStorage.getItem("todos")
+//   setTodosData(savedTodos?JSON.parse(savedTodos):[])
+// },[savedTodos])
+
+console.log(todos)
+
 
   const remainingTasks: TodoItemType[] = todos.filter((todo:TodoItemType) =>!todo.isComplete)
   const completedTasks: TodoItemType[] = todos.filter((todo:TodoItemType) =>todo.isComplete)
@@ -69,6 +81,7 @@ export default function Home() {
               title={item.title}
               date={item.date}
               id={item.id}
+              isComplete={item.isComplete}
               key={item.id}
             />
           ))}
@@ -86,6 +99,7 @@ export default function Home() {
               title={item.title}
               date={item.date}
               id={item.id}
+              isComplete={item.isComplete}
               key={item.id}
             />
           ))}

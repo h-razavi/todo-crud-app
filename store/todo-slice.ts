@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { TodoItemType } from "../data";
 
+
+
 const initialState:TodoItemType[] = []
 
 const tasksSlice = createSlice({
@@ -21,6 +23,7 @@ const tasksSlice = createSlice({
         }
     }
 })
+
 
 export const {addTask , deleteTask , editTask , markComplete} = tasksSlice.actions;
 export default tasksSlice.reducer;

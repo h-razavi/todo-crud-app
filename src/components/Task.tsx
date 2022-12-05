@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../../styles/Task.module.css";
+import { TodoItemType } from "../../data";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -8,13 +9,9 @@ import { useDispatch } from "react-redux";
 import { deleteTask,  markComplete } from "../../store/todo-slice";
 import TaskModal from "./TaskModal";
 
-type Props = {
-  title: string;
-  date: string;
-  id: number;
-};
+type Props = TodoItemType;
 
-function Task({ title, date, id }: Props) {
+function Task({ title, date, id , isComplete }: Props) {
   const [openEdit, setOpenEdit] = useState(false);
   const dispatch = useDispatch();
 
@@ -35,7 +32,7 @@ function Task({ title, date, id }: Props) {
         <CalendarMonthIcon /> {date}
       </div>
       <div className={styles.editButtons}>
-        <button className={styles.check} onClick={handleCompleteTasks}>
+        <button className={styles.check} onClick={handleCompleteTasks} disabled={isComplete} >
           <CheckIcon />
         </button>
         <button
@@ -43,9 +40,11 @@ function Task({ title, date, id }: Props) {
           onClick={() => {
             setOpenEdit(true);
           }}
+          disabled={isComplete}
         >
           <EditIcon />
         </button>
+
         <button className={styles.delete} onClick={handleDeleteTasks}>
           <DeleteIcon />
         </button>
