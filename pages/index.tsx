@@ -7,7 +7,7 @@ import styles from "../styles/Home.module.css";
 import logo from "../public/logo.png";
 //
 import { RootState, store } from "../store/store";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 //
 import type { TodoItemType } from "../data";
@@ -23,7 +23,6 @@ import TaskModal from "../src/components/TaskModal";
 export default function Home() {
   //Modal state
   const [open, setOpen] = useState(false);
-  const [isEditing , setIsEditing] = useState(false)
   //Data state
   // const [taskData , setTaskData] = useState<TodoItemType[]|[]>([])
 
@@ -99,7 +98,7 @@ export default function Home() {
             taskDefaultValue=""
             dateDefaultValue=""
           />
-        )}
+         )}
       </main>
     </div>
   );

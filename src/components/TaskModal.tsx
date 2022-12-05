@@ -12,7 +12,6 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import { store } from "../../store/store";
 
 type Props = {
   open: boolean;
@@ -20,6 +19,7 @@ type Props = {
   modalType: "ADD" | "EDIT";
   taskDefaultValue: string;
   dateDefaultValue: string;
+  taskID?: number;
 };
 
 function TaskModal({
@@ -27,6 +27,7 @@ function TaskModal({
   modalType,
   taskDefaultValue,
   dateDefaultValue,
+  taskID,
   onCloseModal,
 }: Props) {
   //Creating value states
@@ -60,9 +61,14 @@ function TaskModal({
     onCloseModal();
   }
 
-  let task: TodoItemType;
   function handleEditTask() {
-    dispatch(editTask({ ...task, title: taskValue, date: dateValue }));
+    dispatch(
+      editTask({
+        title: taskValue ? taskValue : taskDefaultValue,
+        date: dateValue ? dateValue : dateDefaultValue,
+        id: taskID,
+      })
+    );
     onCloseModal();
   }
 

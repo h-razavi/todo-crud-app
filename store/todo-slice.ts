@@ -14,8 +14,7 @@ const tasksSlice = createSlice({
            return state.filter((task)=> task.id!==action.payload.id)
         },
         editTask(state,action){
-            return state.map(task=>task.id===action.payload.id?action.payload : task)
-            
+            return state.map(task=>task.id===action.payload.id?action.payload : task)          
         },
         markComplete(state,action){
             return state.map((task)=>task.id===action.payload.id?{...task,isComplete : true}:task)

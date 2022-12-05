@@ -4,8 +4,8 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CheckIcon from "@mui/icons-material/Check";
-import { useDispatch, useSelector } from "react-redux";
-import { deleteTask, editTask , markComplete } from "../../store/todo-slice";
+import { useDispatch } from "react-redux";
+import { deleteTask,  markComplete } from "../../store/todo-slice";
 import TaskModal from "./TaskModal";
 
 type Props = {
@@ -24,10 +24,9 @@ function Task({ title, date, id }: Props) {
   }
 
   //Complete Tasks
-  function handleCompleteTasks(){
-    dispatch(markComplete({id}))
+  function handleCompleteTasks() {
+    dispatch(markComplete({ id }));
   }
-
 
   return (
     <div className={styles.container}>
@@ -36,23 +35,29 @@ function Task({ title, date, id }: Props) {
         <CalendarMonthIcon /> {date}
       </div>
       <div className={styles.editButtons}>
-        <button className={styles.check} onClick={handleCompleteTasks} >
+        <button className={styles.check} onClick={handleCompleteTasks}>
           <CheckIcon />
         </button>
-        <button className={styles.edit} onClick={()=>{setOpenEdit(true)}}>
+        <button
+          className={styles.edit}
+          onClick={() => {
+            setOpenEdit(true);
+          }}
+        >
           <EditIcon />
         </button>
         <button className={styles.delete} onClick={handleDeleteTasks}>
           <DeleteIcon />
         </button>
       </div>
-      {openEdit && <TaskModal
-        open = {openEdit}
-        modalType = "EDIT"
+      <TaskModal
+        open={openEdit}
+        modalType="EDIT"
         taskDefaultValue={title}
         dateDefaultValue={date}
-        onCloseModal={() => setOpenEdit(false)}  
-      />}
+        onCloseModal={() => setOpenEdit(false)}
+        taskID={id}
+      />
     </div>
   );
 }
