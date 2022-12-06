@@ -5,3 +5,9 @@
   box-shadow: 10px 5px 23px -4px rgba(190, 227, 199, 0.5);
   padding: 2rem;
 }
+
+@media (max-width<576px) {
+    .box{
+        width: fit-content;
+    }
+}

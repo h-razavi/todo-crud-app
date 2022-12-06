@@ -43,3 +43,16 @@
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 0.2rem;
 }
+
+@media (max-width:576px) {
+    .container {
+      flex-direction: column;
+      align-content: center;
+      gap: 1rem;
+    }
+    .title{
+        width: 80%;
+        text-align: center;
+    }
+  }
+  

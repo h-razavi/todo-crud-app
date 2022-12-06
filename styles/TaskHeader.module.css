@@ -23,3 +23,9 @@
   text-align: center;
   border-radius: 0.2rem;
 }
+
+@media (max-width:576px) {
+    .title{
+        letter-spacing: normal;
+    }
+}
