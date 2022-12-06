@@ -1,34 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Simple CRUD Todo List App
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This is as the title implies a simple todo list web app with CRUD (Create, Read, Update, Delete) funtionalities.
+You can visit the live app here : [Simple CRUD Todo App](https://simple-todo-crud-app.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![screenshot](/public/screenshot.png)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## What It Does
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This app supports **four** basic functions seen in any todo list app.
+1. You can add tasks to your lists with title and due date.
+2. You can edit the title and due date of your tasks.
+3. You can mark your tasks as *completed*
+4. You can delete each task individually from your list.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Technologies
 
-## Learn More
+This app was developed by below mentioned technologies:
+- [React](https://reactjs.org/)
+- [NextJS](https://nextjs.org/)
+- [Typescript]()
+- [Redux/Redux Toolkit](https://redux-toolkit.js.org/)
+- [Material UI](https://mui.com/)
 
-To learn more about Next.js, take a look at the following resources:
+## Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This App was designed and developed by [Hossain Razavi](mailto:hossain.razavi.dev@gmail.com)
