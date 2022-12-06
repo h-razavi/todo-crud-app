@@ -25,6 +25,8 @@ This app was developed by below mentioned technologies:
 - [Redux/Redux Toolkit](https://redux-toolkit.js.org/)
 - [Material UI](https://mui.com/)
 
+This app also utilizes the browser's **LocalStorage** to save data
+
 ## Author
 
 This App was designed and developed by [Hossain Razavi](mailto:hossain.razavi.dev@gmail.com)
