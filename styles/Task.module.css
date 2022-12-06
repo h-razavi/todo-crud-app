@@ -1,46 +1,45 @@
-.container{
-    width: 90%;
-    background-color: rgba(79, 118, 185, 0.5);
-    margin: 0 auto 1rem;
-    padding: 1rem 1.5rem;
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.container {
+  width: 90%;
+  background-color: rgba(79, 118, 185, 0.5);
+  margin: 0 auto 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.date{
-    display: flex;
-    align-items: center;
+.date {
+  display: flex;
+  align-items: center;
 }
 
-.title{
-    width: 50%;
+.title {
+  width: 50%;
 }
 
 .editButtons {
-    display: flex;
-    gap: 0.25rem;
+  display: flex;
+  gap: 0.25rem;
 }
 
-.editButtons button{
-    cursor: pointer;
+.editButtons button {
+  cursor: pointer;
 }
-.check:hover{
-    color: var(--primary-light);
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 0.2rem;
-}
-
-.edit:hover{
-    color: var(--primary-button);
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 0.2rem;
+.check:hover {
+  color: var(--primary-light);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.2rem;
 }
 
-.delete:hover{
-    color: var(--primary-red);    
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 0.2rem;
+.edit:hover {
+  color: var(--primary-button);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.2rem;
 }
 
+.delete:hover {
+  color: var(--primary-red);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.2rem;
+}

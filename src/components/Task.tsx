@@ -1,17 +1,21 @@
 import React, { useState } from "react";
+//
 import styles from "../../styles/Task.module.css";
-import { TodoItemType } from "../../data";
+//
+import { TodoItemType } from "../../typing";
+//
+import { useDispatch } from "react-redux";
+import { deleteTask, markComplete } from "../../store/todo-slice";
+//
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CheckIcon from "@mui/icons-material/Check";
-import { useDispatch } from "react-redux";
-import { deleteTask,  markComplete } from "../../store/todo-slice";
 import TaskModal from "./TaskModal";
 
 type Props = TodoItemType;
 
-function Task({ title, date, id , isComplete }: Props) {
+function Task({ title, date, id, isComplete }: Props) {
   const [openEdit, setOpenEdit] = useState(false);
   const dispatch = useDispatch();
 
@@ -32,7 +36,11 @@ function Task({ title, date, id , isComplete }: Props) {
         <CalendarMonthIcon /> {date}
       </div>
       <div className={styles.editButtons}>
-        <button className={styles.check} onClick={handleCompleteTasks} disabled={isComplete} >
+        <button
+          className={styles.check}
+          onClick={handleCompleteTasks}
+          disabled={isComplete}
+        >
           <CheckIcon />
         </button>
         <button

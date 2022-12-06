@@ -1,0 +1,25 @@
+.container {
+  width: 90%;
+  background-color: rgba(150, 174, 164, 0.5);
+  margin: 0 auto;
+  padding: 0 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  letter-spacing: 0.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.badge {
+  background-color: var(--primary-dark-faded);
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.2rem;
+  text-align: center;
+  border-radius: 0.2rem;
+}

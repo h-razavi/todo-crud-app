@@ -1,20 +1,20 @@
-.button{
-    display: flex;
-    justify-content: center;
-    margin-inline: auto;
-    width: 90%;
-    background-color: var(--primary-purple);
-    padding: 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: bold;
+.button {
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  width: 90%;
+  background-color: var(--primary-purple);
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
-.button:hover{
-    background-color: blueviolet;
+.button:hover {
+  background-color: blueviolet;
 }
-.button:active{
-    background-color: blueviolet;
+.button:active {
+  background-color: blueviolet;
 }

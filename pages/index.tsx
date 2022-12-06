@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 //
 import Head from "next/head";
 import Image from "next/image";
@@ -6,14 +6,14 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import logo from "../public/logo.png";
 //
-import { RootState, store } from "../store/store";
+import { RootState } from "../store/store";
 import { useSelector } from "react-redux";
 
 //
-import type { TodoItemType } from "../data";
+import type { TodoItemType } from "../typing";
 //
 import Box from "../src/components/Box";
-import TaskCounter from "../src/components/TaskCounter";
+import TaskHeader from "../src/components/TaskHeader";
 import Task from "../src/components/Task";
 import ListIcon from "@mui/icons-material/List";
 import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
@@ -23,8 +23,6 @@ import TaskModal from "../src/components/TaskModal";
 export default function Home() {
   //Modal state
   const [open, setOpen] = useState(false);
-  //Data state
-  // const [todosData , setTodosData] = useState<TodoItemType[]|[]>([])
 
   // Handle modal operations
   const handleOpenModal = () => {
@@ -36,30 +34,40 @@ export default function Home() {
   };
 
   //Get data
-  const todos: TodoItemType[] | any = useSelector<RootState>((state) => state.tasks);
+  const todos: TodoItemType[] | any = useSelector<RootState>(
+    (state) => state.tasks
+  );
 
-  // const remainingTasks: TodoItemType[] = todos.filter((todo:TodoItemType) =>!todo.isComplete)
-  // const completedTasks: TodoItemType[] = todos.filter((todo:TodoItemType) =>todo.isComplete)
-
-  // LocalStorage
-// useEffect(()=>{
-//   const savedTodos = localStorage.getItem("todos")
-//   setTodosData(savedTodos?JSON.parse(savedTodos):[])
-// },[savedTodos])
-
-console.log(todos)
-
-
-  const remainingTasks: TodoItemType[] = todos.filter((todo:TodoItemType) =>!todo.isComplete)
-  const completedTasks: TodoItemType[] = todos.filter((todo:TodoItemType) =>todo.isComplete)
-
+  const remainingTasks: TodoItemType[] = todos.filter(
+    (todo: TodoItemType) => !todo.isComplete
+  );
+  const completedTasks: TodoItemType[] = todos.filter(
+    (todo: TodoItemType) => todo.isComplete
+  );
 
   return (
     <div className={styles.container}>
       <Head>
         <title>Todo App</title>
-        <meta name="description" content="A Todo List" />
-        <link rel="icon" href="/logo.svg" />
+        <meta name="description" content="A Simple CRUD Todo List App" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="96x96"
+          href="/favicon-96x96.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
@@ -78,14 +86,15 @@ console.log(todos)
         </header>
 
         <Box>
-          <TaskCounter
+          <TaskHeader
             title="Tasks"
             icon={<ListIcon />}
             counter={remainingTasks.length}
           />
+
           <div className={styles.seperator} />
-          {/* tasks here */}
-          {remainingTasks.map((item : TodoItemType) => (
+
+          {remainingTasks.map((item: TodoItemType) => (
             <Task
               title={item.title}
               date={item.date}
@@ -94,25 +103,36 @@ console.log(todos)
               key={item.id}
             />
           ))}
+
           <TaskButton text="Add A New Task" onClick={handleOpenModal} />
         </Box>
-        {completedTasks.length>0 && <Box>
-          <TaskCounter
-            title="Completed"
-            icon={<PlaylistAddCheckIcon />}
-            counter={completedTasks.length}
-          />
-          <div className={styles.seperator} />
-          {completedTasks.map((item : TodoItemType) => (
-            <Task
-              title={item.title}
-              date={item.date}
-              id={item.id}
-              isComplete={item.isComplete}
-              key={item.id}
+
+
+        {completedTasks.length > 0 && (
+          <Box>
+
+            <TaskHeader
+              title="Completed"
+              icon={<PlaylistAddCheckIcon />}
+              counter={completedTasks.length}
             />
-          ))}
-        </Box>}
+
+            <div className={styles.seperator} />
+
+            {completedTasks.map((item: TodoItemType) => (
+              <Task
+                title={item.title}
+                date={item.date}
+                id={item.id}
+                isComplete={item.isComplete}
+                key={item.id}
+              />
+            ))}
+
+          </Box>
+        )}
+
+        
         {open && (
           <TaskModal
             open
@@ -121,7 +141,7 @@ console.log(todos)
             taskDefaultValue=""
             dateDefaultValue=""
           />
-         )}
+        )}
       </main>
     </div>
   );

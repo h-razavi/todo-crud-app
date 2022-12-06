@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   --primary-dark: #1c1f54;
   --primary-dark-faded: #1c1f5460;
   --primary-light: #26c897;

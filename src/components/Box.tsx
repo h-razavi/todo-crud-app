@@ -1,16 +1,12 @@
-import React from 'react';
-import styles from "../../styles/Box.module.css"
+import React from "react";
+import styles from "../../styles/Box.module.css";
 
 type Props = {
-    children : React.ReactNode
+  children: React.ReactNode;
+};
+
+function Box({ children }: Props) {
+  return <div className={styles.box}>{children}</div>;
 }
 
-function Box({children}: Props) {
-  return (
-    <div className={styles.box}>
-       {children}
-    </div>
-  )
-}
-
-export default Box
+export default Box;

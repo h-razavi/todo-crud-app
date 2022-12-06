@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask, editTask } from "../../store/todo-slice";
 //
-import type { TodoItemType } from "../../data";
+import type { TodoItemType } from "../../typing";
 import type { RootState } from "../../store/store";
 //
 import Button from "@mui/material/Button";
